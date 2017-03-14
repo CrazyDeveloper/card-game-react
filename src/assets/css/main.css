@@ -1,0 +1,418 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+    box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-family: 'Acme', sans-serif;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    background-color: rgba(0, 92, 153, 1); /*dim the background*/
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+textarea, input, button { outline: none; }
+/** SHARED **/
+.m-b-s {
+    margin-bottom: 5px;
+}
+.m-b-m {
+    margin-bottom: 15px;
+}
+
+.m-b-lg {
+    margin-bottom: 30px;
+}
+
+input {
+    height: 40px;
+    text-align: center;
+    font-family: cursive;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button:hover {
+    -webkit-box-shadow: 0px 15px 94px -8px rgba(54,126,146,0.76);
+    -moz-box-shadow: 0px 15px 94px -8px rgba(54,126,146,0.76);
+    box-shadow: 0px 15px 94px -8px rgba(54,126,146,0.76);
+}
+
+.btn-full-w {
+    display: block;
+    width: 100%;
+}
+
+.button-success {
+    background-color: #4CAF50;
+}
+
+/* Green */
+.button-regular {
+    background-color: #2A628F;
+}
+
+/* Blue */
+.button-warning {
+    background-color: #f44336;
+}
+
+/* Red */
+.button-default {
+    background-color: #e7e7e7;
+    color: black;
+}
+
+/* Gray */
+.button5 {
+    background-color: #555555;
+}
+
+.pill {
+    border-radius: 15px / 45px;
+}
+
+
+.center-vertical-horizontal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    background: radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+    background-color: #282828;
+    background-size: 16px 16px;
+}
+
+h1,h2,h3,h4,h5,p {
+    color: goldenrod;
+}
+
+/** SHARED END **/
+
+.playing-table {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: #b4ddb4;
+    background: -moz-radial-gradient(center, ellipse cover, #b4ddb4 0%, #83c783 17%, #52b152 33%, #008a00 67%, #005700 83%, #002400 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, #b4ddb4 0%, #83c783 17%, #52b152 33%, #008a00 67%, #005700 83%, #002400 100%);
+    background: radial-gradient(ellipse at center, #b4ddb4 0%, #83c783 17%, #52b152 33%, #008a00 67%, #005700 83%, #002400 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b4ddb4', endColorstr='#002400', GradientType=1);
+    border-radius: 50%;
+    margin: 0 auto;
+    height: 40%;
+    width: 40%;
+    border: 15px solid #000;
+}
+
+.playing-table ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center;
+    height: 280px;
+    align-items: center;
+}
+
+.player {
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    overflow: hidden;
+    margin: 0 auto;
+    height: 200px;
+}
+
+.disabled:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    /*background: red;*/
+    position: absolute;
+    top:0;
+}
+
+.player.first {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 900px;
+}
+
+.player.second {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+}
+
+.player.third {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+
+.player.third .card-deck {
+    padding-top: 20px;
+}
+
+.player.fourth {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.game-winner {
+    color: #a9b1b3;
+    font-family: fantasy;
+}
+
+.overlay {
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,1) 4%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,1) 4%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,1) 4%,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.loader {
+    border: 16px solid #424B54; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    height: 120px;
+    margin: 0 auto;
+    width: 120px;
+    animation: spin 2s linear infinite;
+
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.start-screen {
+    text-align: center;
+}
+
+.start-game-form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/** CARDS **/
+.card-deck {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding :65px 5px 0;
+    width: 85%;
+}
+
+.first .card-deck, .player.third .card-deck {
+    margin: 0 auto;
+}
+
+.card {
+    padding: 5px 0;
+    width: 10%;
+}
+
+.card img {
+    width: 70px;
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.1);
+}
+/** CARDS END**/
+
+/** winner screen **/
+.round-winner {
+    font-size: 24px;
+    color: goldenrod;
+}
+
+.round-winner h4 {
+    text-align: center;
+    padding-top: 20%;
+}
+
+.player-info {
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.62) 4%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.62) 4%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.62) 4%,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+    border: 3px solid #615c5a;
+    border-radius: 5px;
+    height:55px;
+    position: absolute;
+    width: 80px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
+}
+
+.player-info h3, .player-info p {
+    padding: 5px 0 0 5px;
+}
+.player.first .player-info {
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.player.second .player-info {
+    top: 0;
+    left: 50%;
+}
+
+.player.third .player-info {
+    bottom: 0;
+    left: 50%;
+}
+
+.player.fourth .player-info {
+    top: 0;
+    left: 50%;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 667px)  {
+    .playing-table {
+        border: 6px solid #000;
+    }
+    .playing-table ul {
+        height: 135px;
+    }
+
+    .card img {
+        width: 50px;
+    }
+
+    .card-deck {
+        padding: 35px 5px 0;
+    }
+
+    .player {
+        height: 150px;
+    }
+
+   .player.first , .player.third {
+       width: 100%;
+       height: 120px;
+   }
+
+    .player.third .card-deck {
+        padding-top: 0;
+    }
+
+    .player.first .player-info {
+        top: 8%;
+    }
+
+    .player.second .player-info {
+        top: 6%;
+    }
+    .player.third .player-info {
+        top: 72%;
+    }
+    .player.fourth .player-info {
+        top: 6%;
+    }
+
+    .player.first .card-deck, .player.third .card-deck {
+        margin: 0 auto;
+        width: 70%;
+    }
+
+    .player-info {
+        height:25px;
+        width: 160px;
+    }
+    .player-info h3, .player-info p {
+        display: inline;
+    }
+}
+}
