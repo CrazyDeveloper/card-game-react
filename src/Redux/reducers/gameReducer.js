@@ -55,11 +55,15 @@ export default function gameReducer(state = initalState, action) {
 
             let roundTotal = state.roundTotal;
 
+            const activeCards = state.players[currentPlayerPlaying].cards.filter((card, i)=>{
+               if (action.cardIndex != i) return card
+            });
             return {
                 ...state,
                 autoPlay: true,
                 cardsOnTheTable: [...state.cardsOnTheTable, state.players[currentPlayerPlaying].cards[action.cardIndex]],
                 ...state.players[currentPlayerPlaying].cards[action.cardIndex].isPlayed = true,
+                ...state.players[currentPlayerPlaying].cards = activeCards,
                 currentPlayerPlaying: currentPlayerPlaying + 1,
                 highestCard: parseInt(highestCard),
                 roundWinner: roundWinner,
@@ -86,7 +90,7 @@ export default function gameReducer(state = initalState, action) {
             let totalScore = state.players[state.roundWinner].totalScore;
             totalScore+= state.roundTotal;
 
-            const isLastRound  = state.currentRound === 2;
+            const isLastRound  = state.currentRound === 10;
 
             let tmpState = {
                 ...state,
