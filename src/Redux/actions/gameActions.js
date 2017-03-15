@@ -58,7 +58,7 @@ export function mapPlayers(deckObj, numberOfPlayers) {
 
 export function playerPlayed(cardIndex) {
     return dispatch => {
-        dispatch(cardPlayed(cardIndex))
+        dispatch(cardPlayed(cardIndex));
         dispatch(startAutoPlay())
     }
 }
@@ -70,8 +70,7 @@ export function startAutoPlay() {
         const toBePlayed = currentState.gameReducer.numberOfPlayers;
 
         for (let i = 2; i <= toBePlayed; i++) {
-            const cardIndex = Math.floor(Math.random() * 10);
-
+            const cardIndex = Math.floor(Math.random() * currentState.gameReducer.players[0].cards.length);
             let interval = 500;
 
             setTimeout(() => {
@@ -96,9 +95,8 @@ export function startRound() {
     }
 }
 
-function endRound(cardIndex) {
+function endRound() {
     return dispatch => {
-        // dispatch(cardPlayed(cardIndex));
         dispatch({
             type: actionTypes.END_ROUND
         })
@@ -118,4 +116,8 @@ function cardPlayed(cardIndex) {
         type: actionTypes.CARD_PLAYED,
         cardIndex
     }
+}
+
+function getNextCard() {
+    const cardIndex  = Math.floor(Math.random() * 10);
 }
