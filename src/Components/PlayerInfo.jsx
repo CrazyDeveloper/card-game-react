@@ -1,10 +1,9 @@
 import React, {PropTypes} from "react";
 
-const PlayerInfo = ({position, score, current}) => {
-
+const PlayerInfo = ({position, score}) => {
     return (
         <div className='player-info'>
-            <h3>Player {++position }</h3>
+            <h3>Player { ++position }</h3>
             <p className='score'>Score: {score }</p>
         </div>
     );

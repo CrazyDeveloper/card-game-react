@@ -4,9 +4,9 @@ import PlayingTable from "./../Containers/PlayingTable";
 
 const App = () => (
   <div>
-  <StartScreen />
-  <PlayingTable/>
-</div>
+    <StartScreen />
+    <PlayingTable/>
+  </div>
 );
 
 export default App;

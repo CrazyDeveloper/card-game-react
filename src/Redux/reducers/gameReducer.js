@@ -1,5 +1,5 @@
 import { actionTypes } from "./../actionTypes";
-import { mapCardToValue } from "./../../Helpers/helpers";
+import { mapCardToValue, calculateWinners } from "./../../Helpers/helpers";
 
 const initalState = {
     autoPlay: false,
@@ -125,35 +125,4 @@ export default function gameReducer(state = initalState, action) {
         default:
             return state
     }
-}
-
-function calculateWinners(numberOfPlayers, totalScore, roundWinner, players) {
-    let score = 0;
-    let winners = [];
-    for (let i  = 0; i < numberOfPlayers; i++) {
-        let playerScore = players[i].totalScore;
-
-        if (roundWinner === i) {
-            playerScore = totalScore;
-        }
-
-        if (playerScore > score) {
-            score = playerScore;
-            winners = [];
-            winners.push(
-                {
-                    playerID: i + 1,
-                    score: score
-                })
-
-        } else if (playerScore === score) {
-            winners.push(
-                {
-                    playerID: i + 1,
-                    score: score
-                })
-        }
-    }
-
-    return winners;
 }
